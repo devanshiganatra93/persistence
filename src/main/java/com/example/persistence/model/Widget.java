@@ -5,20 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Widget {
 
     @Id
     @GeneratedValue
     (strategy = GenerationType.IDENTITY)
-    private Long id;
+
+
     private String type;
-    private Integer size;
-    private String text;
-    private String text1;
-    private String items;
-    private String src;
-    private String title;
-    private String href;
+    private Integer height;
+    private Integer width;
 
     @ManyToOne()
     @JsonIgnore
@@ -26,26 +23,13 @@ public class Widget {
 
     public Widget () {}
 
-    public Widget(Long id, String type, String text1) {
-        this.id = id;
-        this.type = type;
-        this.size = 1;
-        this.text = "";
-        this.text1 = text1;
-        this.items = "List1, list2, list3, list4";
-        this.src = "";
-        this.title = "";
-        this.href = "";
+
+    public Widget(Integer height, Integer width, Topic topic) {
+        this.height = height;
+        this.width = width;
+        this.topic = topic;
     }
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
@@ -55,60 +39,29 @@ public class Widget {
         this.type = type;
     }
 
-    public Integer getSize() {
-        return size;
+    public Integer getHeight() {
+        return height;
     }
 
-    public void setSize(Integer size) {
-        this.size = size;
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 
-    public String getText() {
-        return text;
+    public Integer getWidth() {
+        return width;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setWidth(Integer width) {
+        this.width = width;
     }
 
-    public String getText1() {
-        return text1;
+    public Topic getTopic() {
+        return topic;
     }
 
-    public void setText1(String text1) {
-        this.text1 = text1;
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
-    public String getItems() {
-        return items;
-    }
-
-    public void setItems(String items) {
-        this.items = items;
-    }
-
-    public String getSrc() {
-        return src;
-    }
-
-    public void setSrc(String src) {
-        this.src = src;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
 
 }
