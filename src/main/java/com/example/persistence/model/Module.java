@@ -1,12 +1,12 @@
 package com.example.persistence.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
-public class Course {
+public class Module {
 
     @Id
     @GeneratedValue
@@ -14,32 +14,21 @@ public class Course {
     private Long id;
     private String title;
 
-    @OneToMany(mappedBy="course")
-    private List<Module> modules;
+
+    @OneToMany(mappedBy="module")
+    private List<Lesson> lessons;
 
     @ManyToOne()
     @JsonIgnore
-    private Person author;
+    private Course course;
 
-    public Person getAuthor() {
-        return author;
-    }
+    public Module () {}
 
-    public void setAuthor(Person author){
-        this.author = author;
-    }
-
-
-    //private List<Module> modules;
-
-    public Course () {}
-
-    public Course(Long id, String title){
+    public Module(Long id, String title, List<Lesson> lessons) {
         this.id = id;
         this.title = title;
-        //this.modules = modules;
+        this.lessons = lessons;
     }
-
 
     public Long getId() {
         return id;
@@ -57,13 +46,12 @@ public class Course {
         this.title = title;
     }
 
-    public List<Module> getModules() {
-        return modules;
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 
-    public void setModules(List<Module> modules) {
-        this.modules = modules;
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
-
 
 }

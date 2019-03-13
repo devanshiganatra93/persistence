@@ -8,7 +8,8 @@ import java.util.List;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+            (strategy = GenerationType.IDENTITY)
     private Long id;
     private String password;
     private String firstName;
@@ -16,8 +17,12 @@ public class Person {
     private String email;
     private Long phoneNumber;
 
+
+
     @OneToMany(mappedBy="author")
     private List<Course> courses;
+
+    public Person () {}
 
     public Person(String password, String firstName, String lastName, String email, Long phoneNumber, List<Course> courses) {
         this.password = password;
