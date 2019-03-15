@@ -7,15 +7,12 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends CrudRepository<Person, Long> {
-
+public interface PersonRepository extends CrudRepository<Person, Long> {
     @Query
-    ("SELECT user FROM User user WHERE user.username=:username")
-
+    ("SELECT person FROM Person person WHERE person.userName=:username")
             public List<Person> findUserByUsername(@Param("username") String username);
-
     @Query
-    ("SELECT user from User user WHERE user.username=:username AND user.password=:password")
-            public List<Person> findUserByCredentials(@Param("username") String username, @Param("password") String password);
+    ("SELECT person from Person person WHERE person.userName=:username AND person.password=:password")
+            public Person findUserByCredentials(@Param("username") String username, @Param("password") String password);
 
 }

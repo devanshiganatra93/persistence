@@ -13,6 +13,17 @@ public class ListWidget extends Widget{
     private String[] items;
     private Boolean ordered;
 
+    ListWidget () {}
+
+    public ListWidget(String[] items) {
+        this.items = items;
+    }
+
+    public ListWidget(Long id, Integer height, Integer width, Topic topic, String[] items) {
+        super(id, height, width, topic);
+        this.items = items;
+    }
+
     public String[] getItems() {
         return items;
     }

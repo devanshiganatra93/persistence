@@ -53,4 +53,17 @@ public class Topic {
         this.widgets = widgets;
     }
 
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
+    public void setTopic (Topic topic){
+        this.id = topic.getId();
+        this.title = topic.getTitle();
+        this.widgets = topic.getWidgets();
+    }
 }

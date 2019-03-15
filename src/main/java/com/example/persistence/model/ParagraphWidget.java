@@ -17,8 +17,8 @@ public class ParagraphWidget extends Widget{
         this.text = text;
     }
 
-    public ParagraphWidget(Integer height, Integer width, Topic topic, String text) {
-        super(height, width, topic);
+    public ParagraphWidget(Long id, Integer height, Integer width, Topic topic, String text) {
+        super(id, height, width, topic);
         this.text = text;
     }
 

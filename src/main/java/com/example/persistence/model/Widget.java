@@ -13,6 +13,7 @@ public class Widget {
     (strategy = GenerationType.IDENTITY)
 
 
+    private Long id;
     private String type;
     private Integer height;
     private Integer width;
@@ -24,12 +25,22 @@ public class Widget {
     public Widget () {}
 
 
-    public Widget(Integer height, Integer width, Topic topic) {
+    public Widget(Long id, Integer height, Integer width, Topic topic) {
+
+        this.id = id;
         this.height = height;
         this.width = width;
         this.topic = topic;
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;

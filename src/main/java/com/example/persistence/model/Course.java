@@ -9,8 +9,8 @@ import java.util.List;
 public class Course {
 
     @Id
-    @GeneratedValue
-    (strategy = GenerationType.IDENTITY)
+//    @GeneratedValue
+//    (strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
 
@@ -30,14 +30,12 @@ public class Course {
     }
 
 
-    //private List<Module> modules;
-
     public Course () {}
 
-    public Course(Long id, String title){
+    public Course(Long id, String title, List<Module> modules){
         this.id = id;
         this.title = title;
-        //this.modules = modules;
+        this.modules = modules;
     }
 
 
@@ -66,4 +64,9 @@ public class Course {
     }
 
 
+    public void set(Course course) {
+        this.id = course.getId();
+        this.title = course.getTitle();
+        this.modules = course.getModules();
+    }
 }

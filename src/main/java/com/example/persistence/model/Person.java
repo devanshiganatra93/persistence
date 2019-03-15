@@ -8,14 +8,14 @@ import java.util.List;
 public class Person {
 
     @Id
-    @GeneratedValue
-            (strategy = GenerationType.IDENTITY)
     private Long id;
+    private String userName;
     private String password;
     private String firstName;
     private String lastName;
     private String email;
     private Long phoneNumber;
+    //private Person person;
 
 
 
@@ -24,7 +24,8 @@ public class Person {
 
     public Person () {}
 
-    public Person(String password, String firstName, String lastName, String email, Long phoneNumber, List<Course> courses) {
+    public Person(String userName, String password, String firstName, String lastName, String email, Long phoneNumber, List<Course> courses) {
+        this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,6 +41,14 @@ public class Person {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -90,4 +99,13 @@ public class Person {
         this.courses = courses;
     }
 
+    public void set(Person newPerson) {
+        this.userName = newPerson.getUserName();
+        this.password = newPerson.getPassword();
+        this.firstName = newPerson.getFirstName();
+        this.lastName = newPerson.getLastName();
+        this.email = newPerson.getEmail();
+        this.phoneNumber = newPerson.getPhoneNumber();
+        this.courses = newPerson.getCourses();
+    }
 }

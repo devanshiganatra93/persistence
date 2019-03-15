@@ -9,8 +9,7 @@ import java.util.List;
 public class Module {
 
     @Id
-    @GeneratedValue
-    (strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String title;
 
@@ -54,4 +53,17 @@ public class Module {
         this.lessons = lessons;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setModule (Module module) {
+        this.id = module.getId();
+        this.title = module.getTitle();
+        this.lessons = module.getLessons();
+    }
 }
