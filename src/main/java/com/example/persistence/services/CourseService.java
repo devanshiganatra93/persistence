@@ -16,7 +16,7 @@ public class CourseService {
 
     @Autowired
     CourseRepository courseRepository;
-
+/*
     Widget widget1 = new Widget(111111L, 11, 12, null );
 
     List<Widget> widgets = new ArrayList<Widget>(){{
@@ -45,7 +45,7 @@ public class CourseService {
 
     List<Course> courses = new ArrayList<Course>(){{
         add(course1);
-    }};
+    }};*/
 
     @PostMapping("/api/courses")
     public Course createCourse(
@@ -61,13 +61,18 @@ public class CourseService {
         return (List<Course>) courseRepository.findAll();
     }
 
-    @GetMapping("/api/courses/{cid}")
+/*    @GetMapping("/api/courses/{cid}")
     public Course findCourseById(@PathVariable("cid") Long id) {
         for (Course course : courses) {
             if (id == course.getId().longValue())
                 return course;
         }
         return null;
+    }*/
+
+    @GetMapping("/api/courses/{cid}")
+    public Course findCourseById(@PathVariable("cid") Long id) {
+        return courseRepository.findById(id).get();
     }
 
     @PutMapping("/api/courses/{cid}")

@@ -19,7 +19,7 @@ public class ModuleService {
     @Autowired
     CourseRepository courseRepository;
 
-    Widget widget1 = new Widget(12121L, 11, 12, null );
+/*    Widget widget1 = new Widget(12121L, 11, 12, null );
 
     List<Widget> widgets = new ArrayList<Widget>(){{
         add(widget1);
@@ -41,7 +41,7 @@ public class ModuleService {
 
     List<Module> modules = new ArrayList<Module>(){{
         add(module1);
-    }};
+    }};*/
 
     @PostMapping("/api/courses/{cid}/modules")
     public Module createModule(
@@ -59,13 +59,19 @@ public class ModuleService {
         return (List<Module>) moduleRepository.findAll();
     }
 
-    @GetMapping("api/modules/{mid}")
+/*    @GetMapping("api/modules/{mid}")
     public Module findModuleById(@PathVariable("mid") Long id) {
         for (Module module : modules) {
             if (id == module.getId().longValue())
                 return module;
         }
         return null;
+    }*/
+
+
+    @GetMapping("api/modules/{mid}")
+    public Module findModuleById(@PathVariable("mid") Long id) {
+            return moduleRepository.findById(id).get();
     }
 
     @PutMapping("/api/modules/{mid}")

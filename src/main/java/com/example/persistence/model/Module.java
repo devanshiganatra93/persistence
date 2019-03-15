@@ -9,7 +9,6 @@ import java.util.List;
 public class Module {
 
     @Id
-
     private Long id;
     private String title;
 
@@ -21,13 +20,13 @@ public class Module {
     @JsonIgnore
     private Course course;
 
-    public Module () {}
+/*    public Module () {}
 
     public Module(Long id, String title, List<Lesson> lessons) {
         this.id = id;
         this.title = title;
         this.lessons = lessons;
-    }
+    }*/
 
     public Long getId() {
         return id;

@@ -22,7 +22,7 @@ public class LessonService {
     @Autowired
     ModuleRepository moduleRepository;
 
-    Widget widget1 = new Widget(121L,11, 12, null );
+/*    Widget widget1 = new Widget(121L,11, 12, null );
 
     List<Widget> widgets = new ArrayList<Widget>(){{
         add(widget1);
@@ -39,7 +39,7 @@ public class LessonService {
 
     List<Lesson> lessons = new ArrayList<Lesson>(){{
         add(lesson1);
-    }};
+    }};*/
 
     @PostMapping("/api/module/{mid}/lesson")
     public Lesson createLesson(
@@ -55,13 +55,18 @@ public class LessonService {
         return (List<Lesson>) lessonRepository.findAll();
     }
 
-    @GetMapping("/api/lesson/{lid}")
+/*    @GetMapping("/api/lesson/{lid}")
     public Lesson findLessonById(@PathVariable("lid") Long id) {
         for (Lesson lesson : lessons) {
             if (id == lesson.getId().longValue())
                 return lesson;
         }
         return null;
+    }*/
+
+    @GetMapping("/api/lesson/{lid}")
+    public Lesson findLessonById(@PathVariable("lid") Long id) {
+        return lessonRepository.findById(id).get();
     }
 
     @PutMapping("/api/lesson/{lid}")

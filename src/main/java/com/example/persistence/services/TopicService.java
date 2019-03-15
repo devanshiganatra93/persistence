@@ -16,13 +16,13 @@ import java.util.List;
 public class TopicService {
 
     @Autowired
-    LessonRepository lessonRepository;
-
-    @Autowired
     TopicRepository topicRepository;
 
+    @Autowired
+    LessonRepository lessonRepository;
+/*
 
-    Widget widget1 = new Widget(121L, 11, 12, null );
+    Widget widget1 = new Widget(1898762L, 10, 11, null);
 
     List<Widget> widgets = new ArrayList<Widget>(){{
         add(widget1);
@@ -33,14 +33,15 @@ public class TopicService {
     }};
 
     Topic topic1= new Topic(111111L, "Topic1", widgets);
+*/
 
     @PostMapping("/api/lesson/{lid}/topic")
     public Topic createTopic(
-            @PathVariable("lid") Long lid  , @RequestBody Topic topic) {
+            @PathVariable ("lid") Long lid  , @RequestBody Topic topic) {
+        System.out.println("inside");
         topic.setLesson(lessonRepository.findById(lid).get());
         return topicRepository.save(topic);
     }
-
 
     @GetMapping("/api/lesson/{lid}/topic/")
     public List<Topic> findAllTopics(
@@ -49,13 +50,19 @@ public class TopicService {
         return (List<Topic>) topicRepository.findAll();
     }
 
-    @GetMapping("/api/topic/{tid}")
+/*    @GetMapping("/api/topic/{tid}")
     public Topic findTopicById(@PathVariable("tid") Long id) {
         for (Topic topic : topics) {
             if (id == topic.getId().longValue())
                 return topic;
         }
         return null;
+    }*/
+
+
+    @GetMapping("/api/topic/{tid}")
+    public Topic findTopicById(@PathVariable("tid") Long id) {
+        return topicRepository.findById(id).get();
     }
 
     @PutMapping("/api/topic/{tid}")
@@ -69,7 +76,5 @@ public class TopicService {
     @DeleteMapping("/api/topic/{tid}")
     public void deleteTopic(@PathVariable("tid") Long id) {
         topicRepository.deleteById(id);
-
     }
-
 }

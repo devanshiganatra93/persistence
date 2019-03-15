@@ -11,7 +11,7 @@ public class HeadingWidget extends Widget{
     @Column(name = "size", nullable = false)
     private int size;
 
-    HeadingWidget() {}
+/*    HeadingWidget() {}
 
     public HeadingWidget(int size) {
         this.size = size;
@@ -20,7 +20,7 @@ public class HeadingWidget extends Widget{
     public HeadingWidget(Long id, Integer height, Integer width, Topic topic, int size) {
         super(id, height, width, topic);
         this.size = size;
-    }
+    }*/
 
     public int getSize() {
         return size;

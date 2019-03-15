@@ -5,14 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Widget {
 
     @Id
-    @GeneratedValue
-    (strategy = GenerationType.IDENTITY)
-
-
     private Long id;
     private String type;
     private Integer height;
@@ -22,7 +18,7 @@ public class Widget {
     @JsonIgnore
     private Topic topic;
 
-    public Widget () {}
+/*    public Widget () {}
 
 
     public Widget(Long id, Integer height, Integer width, Topic topic) {
@@ -31,7 +27,7 @@ public class Widget {
         this.height = height;
         this.width = width;
         this.topic = topic;
-    }
+    }*/
 
 
     public Long getId() {

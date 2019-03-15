@@ -9,8 +9,6 @@ import java.util.List;
 public class Topic {
 
     @Id
-    @GeneratedValue
-    (strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
 
@@ -21,13 +19,13 @@ public class Topic {
     @JsonIgnore
     private Lesson lesson;
 
-    public Topic () {}
+/*    public Topic () {}
 
     public Topic(Long id, String title, List<Widget> widgets) {
         this.id = id;
         this.title = title;
         this.widgets = widgets;
-    }
+    }*/
 
     public Long getId() {
         return id;

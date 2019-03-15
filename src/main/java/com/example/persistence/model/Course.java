@@ -30,13 +30,13 @@ public class Course {
     }
 
 
-    public Course () {}
+/*    public Course () {}
 
     public Course(Long id, String title, List<Module> modules){
         this.id = id;
         this.title = title;
         this.modules = modules;
-    }
+    }*/
 
 
     public Long getId() {

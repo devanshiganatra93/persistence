@@ -1,6 +1,10 @@
-/*package com.example.persistence.repository;
+package com.example.persistence.repository;
 
-public interface HeadingWidgetRepository {
+        import com.example.persistence.model.HeadingWidget;
+        import com.example.persistence.model.Widget;
+        import org.springframework.data.repository.CrudRepository;
+
+public interface HeadingWidgetRepository extends CrudRepository<HeadingWidget, Long> {
 
 
-}*/
+}

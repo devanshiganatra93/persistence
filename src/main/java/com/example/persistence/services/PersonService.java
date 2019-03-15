@@ -17,7 +17,7 @@ public class PersonService {
     PersonRepository personRepository;
 
     //Topic topic0 = new Topic();
-
+/*
     Widget widget1 = new Widget(111111L,11, 12, null );
 
     List<Widget> widgets = new ArrayList<Widget>(){{
@@ -52,7 +52,7 @@ public class PersonService {
 
     List<Person> persons = new ArrayList<Person>() {{
         add(person1);
-    }};
+    }};*/
 
     @PostMapping("/api/register")
     public Person register(@RequestBody Person person,
@@ -110,14 +110,20 @@ public class PersonService {
         return (List<Person>) personRepository.findAll();
     }
 
-    @GetMapping("/api/persons/{pid}")
+/*    @GetMapping("/api/persons/{pid}")
     public Person findPersonById(@PathVariable("pid") Long id) {
         for (Person person : persons) {
             if (id == person.getId().longValue())
                 return person;
         }
         return null;
+    }*/
+
+    @GetMapping("/api/persons/{pid}")
+    public Person findPersonById(@PathVariable("pid") Long id) {
+        return personRepository.findById(id).get();
     }
+
 
 
 }

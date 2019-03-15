@@ -1,4 +1,4 @@
 package com.example.persistence.services;
 
-public class WidgetService {
+public class HeadingWidgetService {
 }

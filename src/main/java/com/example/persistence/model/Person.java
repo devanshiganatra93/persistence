@@ -22,7 +22,7 @@ public class Person {
     @OneToMany(mappedBy="author")
     private List<Course> courses;
 
-    public Person () {}
+/*    public Person () {}
 
     public Person(String userName, String password, String firstName, String lastName, String email, Long phoneNumber, List<Course> courses) {
         this.userName = userName;
@@ -32,7 +32,7 @@ public class Person {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.courses = courses;
-    }
+    }*/
 
 
     public Long getId() {
