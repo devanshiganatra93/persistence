@@ -73,7 +73,7 @@ public class LessonService {
     public Lesson updateLesson(@PathVariable("lid") Long id,@RequestBody Lesson lesson) {
         Lesson lsn = lessonRepository.findById(id).get();
         lsn.setLesson(lesson);
-        return lessonRepository.save(lesson);
+        return lessonRepository.save(lsn);
     }
 
     @DeleteMapping("/api/lesson/{lid}")

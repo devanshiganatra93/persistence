@@ -79,7 +79,7 @@ public class CourseService {
     public Course updateCourse(@PathVariable("cid") Long id, @RequestBody Course course) {
         Course crse = courseRepository.findById(id).get();
         crse.set(course);
-        return courseRepository.save(course);
+        return courseRepository.save(crse);
 
     }
 

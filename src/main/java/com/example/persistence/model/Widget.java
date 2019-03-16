@@ -6,21 +6,22 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="wType", discriminatorType = DiscriminatorType.STRING)
 public class Widget {
 
     @Id
-    private Long id;
-    private String type;
-    private Integer height;
-    private Integer width;
+    protected Long id;
+    protected String type;
+    protected Integer height;
+    protected Integer width;
 
     @ManyToOne()
     @JsonIgnore
     private Topic topic;
 
-/*    public Widget () {}
+    public Widget () {}
 
-
+/*
     public Widget(Long id, Integer height, Integer width, Topic topic) {
 
         this.id = id;
@@ -71,4 +72,14 @@ public class Widget {
     }
 
 
+    public void setWidget(Widget widget) {
+        this.id = topic.getId();
+        this.type = widget.getType();
+        this.height = widget.getHeight();
+        this.width = widget.getWidth();
+    }
+
+//    public void setHeadingWidget(Widget widget) {
+//
+//    }
 }

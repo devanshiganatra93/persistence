@@ -69,7 +69,7 @@ public class TopicService {
     public Topic updateTopic(@PathVariable("tid") Long id, @RequestBody Topic topic) {
         Topic tpc = topicRepository.findById(id).get();
         tpc.setTopic(topic);
-        return topicRepository.save(topic);
+        return topicRepository.save(tpc);
 
     }
 

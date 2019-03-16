@@ -9,8 +9,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface WidgetRepository extends CrudRepository<Widget, Long> {
-/*
-    @Query
-            ("SELECT widget FROM Widget widget WHERE widget.id=:id")
-    public List<Widget> findWidgetById(@Param("id") Long id);*/
+
 }

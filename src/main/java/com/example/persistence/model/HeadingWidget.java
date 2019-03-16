@@ -2,14 +2,15 @@ package com.example.persistence.model;
 
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="HEADING_WIDGET")
+@DiscriminatorValue("hWidget")
 public class HeadingWidget extends Widget{
-    @Column(name = "size", nullable = false)
-    private int size;
+    @Column(name = "size")
+    private Integer size;
 
 /*    HeadingWidget() {}
 
@@ -21,6 +22,7 @@ public class HeadingWidget extends Widget{
         super(id, height, width, topic);
         this.size = size;
     }*/
+
 
     public int getSize() {
         return size;

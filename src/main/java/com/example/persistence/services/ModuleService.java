@@ -78,7 +78,7 @@ public class ModuleService {
     public Module updateModule(@PathVariable("mid") Long id, @RequestBody Module module) {
         Module mdle = moduleRepository.findById(id).get();
         mdle.setModule(module);
-        return moduleRepository.save(module);
+        return moduleRepository.save(mdle);
 
     }
 
