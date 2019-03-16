@@ -6,11 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="LIST_WIDGET")
+//@Table(name="LIST_WIDGET")
 public class ListWidget extends Widget{
-    @Column(name = "items ordered")
-
+    @Column(name = "items")
+    //@Column(name = "ordered")
     private String[] items;
+    @Column(name = "ordered")
     private Boolean ordered;
 
 /*    ListWidget () {}

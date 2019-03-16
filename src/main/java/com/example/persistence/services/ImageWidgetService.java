@@ -10,9 +10,10 @@ import com.example.persistence.repository.WidgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class ImageWidgetService {
-
-
 
     @Autowired
     WidgetRepository widgetRepository;
@@ -36,11 +37,11 @@ public class ImageWidgetService {
 
     @PutMapping("/api/image/widget/{wid}")
     public ImageWidget updateWidget(@PathVariable("wid") Long id, @RequestBody ImageWidget widget) {
+        System.out.println("inside");
         Widget wgt = widgetRepository.findById(id).get();
         widget.setTopic(wgt.getTopic());
         widgetRepository.deleteById(id);
         widget.setId(id);
         return imageWidgetRepository.save(widget);
-
     }
 }

@@ -79,7 +79,4 @@ public class Widget {
         this.width = widget.getWidth();
     }
 
-//    public void setHeadingWidget(Widget widget) {
-//
-//    }
 }

@@ -7,10 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "IMAGE_WIDGET")
-@DiscriminatorValue("iWidget")
+//@Table(name = "IMAGE_WIDGET")
+//@DiscriminatorValue("iWidget")
 public class ImageWidget extends Widget{
-
     @Column(name = "source")
     private  String source;
 

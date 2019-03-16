@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("hWidget")
+//@DiscriminatorValue("hWidget")
 public class HeadingWidget extends Widget{
     @Column(name = "size")
     private Integer size;

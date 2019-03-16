@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PARAGRAPH_WIDGET")
+//@Table(name="PARAGRAPH_WIDGET")
 public class ParagraphWidget extends Widget{
     @Column(name = "text")
     private String text;
