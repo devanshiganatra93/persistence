@@ -52,7 +52,8 @@ public class LessonService {
     public List<Lesson> findAllLessons(
             @PathVariable("mid") Long mid) {
 
-        return (List<Lesson>) lessonRepository.findAll();
+        //return (List<Lesson>) lessonRepository.findAll();
+        return moduleRepository.findById(mid).get().getLessons();
     }
 
 /*    @GetMapping("/api/lesson/{lid}")

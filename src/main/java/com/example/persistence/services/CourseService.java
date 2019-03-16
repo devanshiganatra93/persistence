@@ -2,6 +2,7 @@ package com.example.persistence.services;
 
 import com.example.persistence.model.*;
 import com.example.persistence.repository.CourseRepository;
+import com.example.persistence.repository.PersonRepository;
 import org.omg.CORBA.PERSIST_STORE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class CourseService {
+
+    @Autowired
+    PersonRepository personRepository;
 
     @Autowired
     CourseRepository courseRepository;
@@ -56,9 +60,11 @@ public class CourseService {
     }
 
     @GetMapping("/api/courses")
-    public List<Course> findAllCourses() {
+    //public List<Course> findAllCourses(){
+    public List<Course> findAllCourses(HttpSession session){
 
-        return (List<Course>) courseRepository.findAll();
+        //return (List<Course>) courseRepository.findAll();
+        return personRepository.findById(((Person)session.getAttribute("currentUser")).getId()).get().getCourses();
     }
 
 /*    @GetMapping("/api/courses/{cid}")

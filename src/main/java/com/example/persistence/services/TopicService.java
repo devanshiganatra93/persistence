@@ -38,7 +38,7 @@ public class TopicService {
     @PostMapping("/api/lesson/{lid}/topic")
     public Topic createTopic(
             @PathVariable ("lid") Long lid  , @RequestBody Topic topic) {
-        System.out.println("inside");
+        //System.out.println("inside");
         topic.setLesson(lessonRepository.findById(lid).get());
         return topicRepository.save(topic);
     }
@@ -47,7 +47,8 @@ public class TopicService {
     public List<Topic> findAllTopics(
             @PathVariable("lid") Long lid) {
 
-        return (List<Topic>) topicRepository.findAll();
+        //return (List<Topic>) topicRepository.findAll();
+        return lessonRepository.findById(lid).get().getTopics();
     }
 
 /*    @GetMapping("/api/topic/{tid}")

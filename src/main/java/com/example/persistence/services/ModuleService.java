@@ -56,7 +56,8 @@ public class ModuleService {
     public List<Module> findAllModules(
             @PathVariable("cid") Long cid) {
 
-        return (List<Module>) moduleRepository.findAll();
+        //return (List<Module>) moduleRepository.findAll();
+        return courseRepository.findById(cid).get().getModules();
     }
 
 /*    @GetMapping("api/modules/{mid}")
