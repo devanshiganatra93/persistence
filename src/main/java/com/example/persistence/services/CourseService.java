@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class CourseService {
 
     @Autowired
@@ -75,6 +75,13 @@ public class CourseService {
         }
         return null;
     }*/
+
+
+    @GetMapping("/api/courses/everything")
+    public List<Course> findCoursesEverything() {
+        return (List<Course>) courseRepository.findAll();
+    }
+
 
     @GetMapping("/api/courses/{cid}")
     public Course findCourseById(@PathVariable("cid") Long id) {

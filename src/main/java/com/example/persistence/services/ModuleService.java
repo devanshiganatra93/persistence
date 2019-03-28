@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ModuleService {
 
     @Autowired
@@ -69,6 +69,10 @@ public class ModuleService {
         return null;
     }*/
 
+    @GetMapping("api/modules/everything")
+    public List<Module> findModulesEverything(){
+        return (List<Module>) moduleRepository.findAll();
+    }
 
     @GetMapping("api/modules/{mid}")
     public Module findModuleById(@PathVariable("mid") Long id) {

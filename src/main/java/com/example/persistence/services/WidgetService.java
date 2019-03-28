@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowCredentials = "true", allowedHeaders = "*")
+@CrossOrigin(origins = "*")
 @RestController
 public class WidgetService {
 
@@ -40,7 +41,10 @@ public class WidgetService {
         return topicRepository.findById(tid).get().getWidgets();
     }
 
-
+    @GetMapping("/api/widgets/everything")
+    public List<Widget> findWidgetsEverything() {
+        return (List<Widget>) widgetRepository.findAll();
+    }
 
     @GetMapping("/api/widget/{wid}")
     public Widget findWidgetById(@PathVariable("wid") Long id) {

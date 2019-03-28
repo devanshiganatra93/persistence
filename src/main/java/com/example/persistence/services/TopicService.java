@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class TopicService {
 
     @Autowired
@@ -60,6 +60,11 @@ public class TopicService {
         return null;
     }*/
 
+
+    @GetMapping("/api/topics/everything")
+    public List<Topic> findTopicsEverything() {
+        return (List<Topic>) topicRepository.findAll();
+    }
 
     @GetMapping("/api/topic/{tid}")
     public Topic findTopicById(@PathVariable("tid") Long id) {
